@@ -59,7 +59,6 @@ public class Bidding {
             else if(c>b && c>a){
                 System.out.println("Charlie");
             }
-            
          }
     }
 }
