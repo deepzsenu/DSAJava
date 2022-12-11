@@ -51,7 +51,7 @@ public class ImplementStackUsingArray {
 	    // Your code here
 	    top++;
 	    arr[top] = a;
-	} 
+	}
 
     //Function to remove an item from top of the stack.
 	int pop()
