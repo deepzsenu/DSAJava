@@ -56,6 +56,19 @@ R-1.13 Modify the declaration of the first for loop in the main method in Code F
 attempt to go over its credit limit. Which credit card is it? */
 
 class CreditCard{
+    private String customer;
+    private String bank;
+    private String account;
+    private int limit;
+    protected double balance;
+    public CreditCard(String cust,String bnk, String acnt, int limit , double initialBal ){
+        this.customer = cust;
+        this.bank = bnk;
+        this.account = acnt;
+        this.limit = limit;
+        this.balance = initialBal;
+    }
+
 
 }
 
@@ -206,7 +219,6 @@ public class Reinforcement {
         // sumSquare();
         // countVowels();
         //stringBuilder();
-
         // flower class
         Flower rose = new Flower("berry", 29, 37.4f);
         Flower pink = new Flower(null, 0, 0);
