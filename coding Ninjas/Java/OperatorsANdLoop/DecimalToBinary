@@ -1,0 +1,23 @@
+import java.util.*;
+public class Main {
+	
+	public static void main(String[] args) {
+		// Write your code here
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		String s = "";
+		while(n>0){
+			int rem = n%2;
+			s=rem+s;
+			n = n/2;
+		}
+		if ( s.length() == 0){
+			System.out.println(0);
+		}
+		else{
+		System.out.println(s);
+		}
+
+
+	}
+}

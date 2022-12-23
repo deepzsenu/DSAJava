@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		/* Your class should be named Solution.
+	 	* Read input as specified in the question.
+	 	* Print output as specified in the question.
+		*/
+		Scanner sc  = new Scanner(System.in);
+		int n = sc.nextInt();
+		for (int i = 0; i <n; i++) {
+			int s = i+1;
+			for (int j = 1; j<=n; j++) {
+				if (j<n-i){
+					System.out.print(" ");
+				}
+				else{
+					System.out.print(s);
+					s++;
+				}				
+			}
+			--s;
+			--s;
+			for (int j = n+1; j<=2*n; j++) {
+				if (j<=n+i){
+					System.out.print(s);
+					s--;
+				}
+				// else{
+				// 	System.out.print(s);
+				// 	s++;
+				// }				
+			}
+			System.out.println();
+			
+		}
+	}
+}

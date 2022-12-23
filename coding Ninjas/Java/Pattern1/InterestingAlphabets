@@ -1,0 +1,14 @@
+import java.util.*;
+public class Solution {
+	public static void main(String[] args) {
+		//Your code goes here
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		for(int i = 1 ; i<=n; i++){
+			for (int j = (65+n-i); j<(65+n); j++){
+				System.out.print((char)j);
+			}
+			System.out.println();
+		}
+	}
+}

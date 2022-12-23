@@ -1,0 +1,22 @@
+import java.util.*;
+public class Main {
+	static int dec(int n){
+		int m = 0;
+		int s = 0;
+		while(n>0){
+			int rem = n%10;
+			m = m +  rem* (int)Math.pow(2,s);
+			s++;
+			n = n/10;
+		}
+		return m;
+	}
+	
+	public static void main(String[] args) {
+		// Write your code here
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		System.out.println(dec(n));
+
+	}
+}

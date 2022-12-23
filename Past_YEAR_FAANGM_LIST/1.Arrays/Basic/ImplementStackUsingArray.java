@@ -11,7 +11,7 @@ pop()
 push(4) 
 pop()
 Output: 3, 4
-Explanation: 
+Explanation:
 push(2)    the stack will be {2}
 push(3)    the stack will be {2 3}
 pop()      poped element will be 3,

@@ -1,0 +1,28 @@
+import java.util.*;
+public class Main {
+	
+	public static void main(String[] args) {
+		// Write your code here
+		Scanner sc= new Scanner(System.in);
+		int n = sc.nextInt();
+		int s = sc.nextInt();
+		if (s == 1){
+			System.out.println((n*(n+1))/2);
+
+		}
+		else if (s ==2){
+			long p = 1;
+			for (int i = 1; i <=n; i++) {
+				p*=i;
+				
+			}
+			System.out.println(p);
+			
+
+		}
+		else{
+			System.out.println(-1);
+		}
+
+	}
+}

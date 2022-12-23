@@ -1,0 +1,43 @@
+
+public class Solution {
+	static int fib(int n){
+		if (n == 0){
+			return 0;
+		}
+		if(n ==2 || n  == 1){
+			return 1;
+		}
+		return fib(n-1)+fib(n-2);
+	}
+	
+	public static boolean checkMember(int n){
+				
+		/* Your class should be named Solution
+		* Don't write main().
+	 	* Don't read input, it is passed as function argument.
+	 	* Return output and don't print it.
+	 	* Taking input and printing output is handled automatically.
+		*/
+		// int arr[] = new int[n+3];
+		// int j = 0;
+		for(int i =  0  ; i<n+3; i++){
+			if (fib(i)==n){
+				return true;
+				
+				// System.out.print(arr[i]+" "+j+"\n");	
+			}
+			else if(fib(i)>n) {
+				break;
+			}		
+		}
+		// for(int i = 0; i<j; i++){
+		// 	if (arr[i] == n){
+		// 		return true;
+		// 	}
+		// }	
+		return false;
+
+	}
+	
+
+}

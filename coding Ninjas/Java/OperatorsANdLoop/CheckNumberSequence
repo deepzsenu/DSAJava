@@ -1,0 +1,96 @@
+import java.util.*;
+public class Main {
+	static boolean canMake(int n, int ar[]){
+    // Base Case
+    if (n == 1)
+        return true;
+    else
+    {
+ 
+        // First subarray is
+        // strictly increasing
+        if (ar[0] < ar[1])
+        {
+ 
+            int i = 1;
+ 
+            // Check for strictly
+            // increasing condition
+            // & find the break point
+            while (i < n && ar[i - 1] < ar[i])
+            {
+                i++;
+            }
+ 
+            // Check for strictly
+            // decreasing condition
+            // & find the break point
+            while (i + 1 < n && ar[i] > ar[i + 1])
+            {
+                i++;
+            }
+ 
+            // If i is equal to
+            // length of array
+            if (i >= n - 1)
+                return true;
+            else
+                return false;
+        }
+ 
+        // First subarray is
+        // strictly Decreasing
+        else if (ar[0] > ar[1])
+        {
+            int i = 1;
+ 
+            // Check for strictly
+            // increasing condition
+            // & find the break point
+            while (i < n && ar[i - 1] > ar[i])
+            {
+                i++;
+            }
+ 
+            // Check for strictly
+            // increasing condition
+            // & find the break point
+            while (i + 1 < n && ar[i] < ar[i + 1])
+            {
+                i++;
+            }
+ 
+            // If i is equal to
+            // length of array - 1
+            if (i >= n - 1)
+                return true;
+            else
+                return false;
+        }
+ 
+        // Condition if ar[0] == ar[1]
+        else
+        {
+            for (int i = 2; i < n; i++)
+            {
+                if (ar[i - 1] <= ar[i])
+                    return false;
+            }
+            return true;
+        }
+    }
+    }
+	
+	public static void main(String[] args) {
+		// Write your code here
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int arr[] = new int[n];
+		for(int i = 0 ; i<arr.length; i++){
+			arr[i] = sc.nextInt();
+		}
+		System.out.println(canMake(n, arr));
+
+
+	}
+}
