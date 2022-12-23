@@ -1,0 +1,15 @@
+
+public class Solution {
+    static void swaps(int arr[], int s , int t){
+        int temp = arr[s];
+        arr[s] = arr[t];
+        arr[t] = temp;
+    }
+    
+    public static void swapAlternate(int arr[]) {
+    	//Your code goes here
+        for(int i = 1 ; i<arr.length; i+=2){
+            swaps(arr,i-1, i);
+        }
+    }
+}
