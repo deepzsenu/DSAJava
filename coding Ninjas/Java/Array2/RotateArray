@@ -1,0 +1,29 @@
+
+public class Solution { 
+    static void swap(int arr[], int i, int j){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }  
+    static void rev(int arr[],int  l ,int  h){
+        while(l<h){
+            swap(arr, l, h);
+            l++;
+            h--;
+        }
+
+    }
+
+    public static void rotate(int[] arr, int d) {
+    	//Your code goes here
+        int n = arr.length;
+        if(d>n){
+            d = d%n;
+        }
+        rev(arr, 0, d-1);
+        rev(arr, d , n-1);
+        rev(arr, 0, n-1);
+        
+    }
+
+}

@@ -1,0 +1,32 @@
+
+public class Solution {
+
+	public static void totalSum(int[][] mat) {
+		//Your code goes here
+		int sum = 0;
+		for (int i = 0; i < mat.length; i++) {
+			sum += mat[i][0];
+			sum += mat[0][i];
+			sum += mat[mat.length-1][i];
+			sum += mat[i][mat.length-1];
+		}
+		for(int i = 1 ; i<mat.length-1; i++){
+			for(int j = 1; j<mat.length-1; j++){
+				if (i == j){
+					sum+=mat[i][j];
+				}
+				else if(i == mat.length-1-j){
+					sum+=mat[i][j];
+				}
+			}
+		}
+		if(mat.length!=0){
+			System.out.print(sum - mat[0][0]-mat[0][mat.length-1]-mat[mat.length-1][mat.length-1]- mat[mat.length-1][0]);
+		
+		}
+		else{
+			System.out.print(0);
+		}
+	}
+
+}

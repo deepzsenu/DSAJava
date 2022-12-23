@@ -1,0 +1,31 @@
+
+public class Solution {
+     static void swap(int arr[], int i, int j){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }    
+
+    public static void sort012(int[] arr){
+    	//Your code goes here
+        int  i = 0 ; 
+        int j = arr.length-1;
+        int m= 0;
+        while(m<=j){
+            if (arr[m] ==0){
+                swap(arr, i, m);
+                m++;
+                i++;
+            }
+            else if (arr[m] == 2){
+                swap(arr, m ,j);
+                j--;
+            }
+            else{
+                m++;
+            }
+
+        }
+    }
+
+}

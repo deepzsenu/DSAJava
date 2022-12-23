@@ -1,0 +1,51 @@
+
+public class Solution {
+
+	public static void spiralPrint(int mat[][]){
+		//Your code goes here
+		if(mat.length ==0){
+			return;
+		}
+		int minr =0;
+		int maxr = mat.length-1;
+		int minc = 0;
+		int maxc = mat[0].length-1;
+		int cnt = 0;
+		int tt = (maxc+1)*(maxr+1);
+		while(cnt<tt){
+			int i = minr;
+			int j = minc;
+			int m = maxr;
+			int n = maxc;
+			while(j<=maxc &&cnt<tt){
+				System.out.print(mat[minr][j]+" ");
+				j++;
+				cnt++;
+			}
+			i++;
+			while(i<=maxr &&cnt<tt){
+				System.out.print(mat[i][maxc]+ " ");
+				i++;
+				cnt++;
+			}
+			n--;
+			
+			while(n>=minc && cnt<tt){
+				System.out.print(mat[maxr][n]+ " ");
+				n--;
+				cnt++;
+			}
+			m--;
+			while(m>minr && cnt<tt){
+				System.out.print(mat[m][minc]+ " ");
+				m--;
+				cnt++;
+			}
+			minr++;
+			minc++;
+			maxr--;
+			maxc--;	
+					
+		}
+	}
+}
