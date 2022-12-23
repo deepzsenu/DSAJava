@@ -1,0 +1,20 @@
+public class Solution {
+	static int suma(int arr[], int si){
+		if (si == arr.length-1){
+			return arr[si];
+		}
+		return arr[si]+suma(arr, si+1);
+	}
+
+	public static int sum(int input[]) {
+		/* Your class should be named Solution
+		 * Don't write main().
+		 * Don't read input, it is passed as function argument.
+		 * Return output and don't print it.
+	 	 * Taking input and printing output is handled automatically.
+		*/
+		return suma(input, 0);
+		
+		
+	}
+}

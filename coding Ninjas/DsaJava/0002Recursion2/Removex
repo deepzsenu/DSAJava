@@ -1,0 +1,18 @@
+
+public class solution {
+
+	// Return the changed string
+	public static String removeX(String s){
+		// Write your code here
+		if (s.length() == 0){
+			return s;
+		}
+		if(s.charAt(0) == 'x'){
+			return removeX(s.substring(1));
+		}
+		else{
+			return s.charAt(0)+ removeX(s.substring(1));
+		}
+
+	}
+}
