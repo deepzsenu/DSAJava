@@ -1,0 +1,110 @@
+import java.util.*;
+public class Solution {	
+	
+        public static int pairSum(int[] arr, int startIndex, int endIndex, int num) {
+		int numPair = 0;
+
+		while (startIndex < endIndex) {
+
+			if (arr[startIndex] + arr[endIndex] < num) {
+				startIndex++;
+			} else if (arr[startIndex] + arr[endIndex] > num) {
+				endIndex--;
+			} else {
+				int elementAtStart = arr[startIndex];
+				int elementAtEnd = arr[endIndex];
+
+				if (elementAtStart == elementAtEnd) {
+					int totalElementFromStartToEnd = (endIndex - startIndex) + 1;
+					numPair += (totalElementFromStartToEnd * (totalElementFromStartToEnd - 1) / 2);
+
+					return numPair;
+				}
+				int tempStartIndex = startIndex + 1;
+				int tempEndIndex = endIndex - 1;
+
+				while (tempStartIndex <= tempEndIndex && arr[tempStartIndex] == elementAtStart) {
+					tempStartIndex++;
+				}
+				while (tempEndIndex >= tempStartIndex && arr[tempEndIndex] == elementAtEnd) {
+					tempEndIndex--;
+				}
+
+				int totalElementFromStart = tempStartIndex - startIndex;
+				int totalElementFromEnd = (endIndex - tempEndIndex);
+
+				numPair += (totalElementFromStart * totalElementFromEnd);
+
+				startIndex = tempStartIndex;
+				endIndex = tempEndIndex;
+			}
+		}
+		return numPair;
+	}
+
+	public static long tripletSum(int[] arr, int num) {
+		Arrays.sort(arr);
+        int n = arr.length;
+
+        long numTriplets = 0;
+
+        for (int i = 0; i < n; i++) {
+            int pairSumFor = num - arr[i];
+            long numPairs = pairSum(arr, (i + 1), (n - 1), pairSumFor);
+
+            numTriplets += numPairs;
+        }
+        return numTriplets;
+		// int cnt = 0;
+		// int n = arr.length;
+		// Arrays.sort(arr);
+		// int  i = 0 ;
+		// while(i<n){
+		// 	int j = i +1;
+		// 	int k = n-1;
+		// 	while(j<=k){
+		// 		if(arr[j]+arr[k]<num){
+		// 			j++;
+		// 		}
+		// 		else if (arr[j]+arr[k]>num){
+		// 			k--;
+		// 		}
+		// 		else if (arr[j] == arr[j+1]){
+		// 			cnt++;
+		// 			j++;
+					
+		// 		}
+		// 		else if(arr[k] == arr[k-1]){
+		// 			cnt++;
+		// 			k--;
+		// 		}
+		// 		else{
+		// 			cnt++;
+		// 			k--;
+		// 			j++;
+		// 		}
+		// 	}
+		// 	i++;
+		// }
+
+
+
+		// if (cnt != 0 ){
+		// 	return cnt-1;
+		// }
+		// return 0;
+		//Your code goes here
+		// int cnt = 0 ; 
+		// for (int i = 0; i < arr.length-2; i++) {
+		// 	for (int j = i+1; j < arr.length-1; j++) {
+		// 		for (int j2 = j+1; j2 < arr.length; j2++) {
+		// 			if (arr[i]+arr[j]+arr[j2] == num){
+		// 				cnt++;
+		// 			}
+					
+		// 		}
+		// 	}
+		// }
+		// return cnt;
+	}
+}

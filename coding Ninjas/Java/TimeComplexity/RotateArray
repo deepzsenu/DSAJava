@@ -1,0 +1,23 @@
+
+public class Solution {  
+    static void  rev(int arr[], int l, int h){
+        while(l<h){
+            int temp = arr[l];
+            arr[l] = arr[h];
+            arr[h] = temp;
+            l++;
+            h--;
+        }
+    }
+
+    public static void rotate(int[] arr, int d) {
+    	//Your code goes here
+        if (d>arr.length){
+            d = arr.length%d;            
+        }
+        rev(arr, 0, d-1);
+        rev(arr, d, arr.length-1);
+        rev(arr,0, arr.length-1);
+    }
+
+}

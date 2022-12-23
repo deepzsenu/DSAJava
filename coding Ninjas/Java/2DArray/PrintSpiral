@@ -44,8 +44,7 @@ public class Solution {
 			minr++;
 			minc++;
 			maxr--;
-			maxc--;	
-					
+			maxc--;
 		}
 	}
 }

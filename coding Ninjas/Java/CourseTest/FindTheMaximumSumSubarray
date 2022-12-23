@@ -1,0 +1,41 @@
+import java.util.*;
+public class Solution {
+   public static long maxSum(int arr[], int n, int k)
+    {
+             
+       
+        long res = 0;
+        for (int i=0; i<k; i++)
+           res += arr[i];
+        long curr_sum = res;
+        for (int i=k; i<n; i++)
+        {
+           curr_sum += arr[i] - arr[i-k];
+           res = Math.max(res, curr_sum);
+        }
+      
+        return res;
+    }
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      int n = sc.nextInt();
+      int x = sc.nextInt();
+      int arr[] = new int[n];
+      for(int i = 0 ; i <n ; i++){
+        arr[i] = sc.nextInt();
+      }
+      long max = maxSum(arr, n, x);
+      // for(int i = 0 ; i<=n-x; i++){
+      //   long sum = 0;
+      //   for(int j = i; j<i+x;j++){
+      //     sum+=arr[j];
+      //   }
+      //   max = Math.max(sum,max);
+
+      // }
+
+    System.out.println(max);   
+      
+      
+    }
+}

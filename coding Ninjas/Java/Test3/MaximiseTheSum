@@ -1,0 +1,64 @@
+public class Solution {
+
+	public static long maximumSumPath(int[] arr1, int[] arr2) {
+		/* Your class should be named Solution
+		* Don't write main().
+		* Don't read input, they are passed as function arguments.
+		* Return output and don't prlong it.
+		* Taking input and prlonging output is handled automatically.
+		*/
+		// Variable to store index of arr1 and arr2
+		long n = arr1.length;
+		long m = arr2.length;
+		int i = 0, j = 0;
+
+		long currSumArr1 = 0, currSumArr2 = 0, maximumSum = 0;
+
+		// Iterate while i<n and j<m
+		while (i < n && j < m) {
+			/*
+			 * If current element of arr1 is smaller than arr2, increment 'i'
+			 * and add current element currSumArr1
+			 */
+			if (arr1[i] < arr2[j]) {
+
+				currSumArr1 += arr1[i];
+				i++;
+			}
+
+			/*
+			 * If current element of arr2 is smaller than arr1, increment 'j'
+			 * and add current element currSumArr2
+			 */
+			else if (arr1[i] > arr2[j]) {
+				currSumArr2 += arr2[j];
+				j++;
+			}
+
+			// Otherwise, update maximumSum
+			else {
+				maximumSum += Math.max(currSumArr1, currSumArr2);
+				maximumSum += arr1[i];
+				currSumArr1 = 0;
+				currSumArr2 = 0;
+				i++;
+				j++;
+			}
+		}
+
+		while (i < n) {
+			currSumArr1 += arr1[i];
+			i++;
+		}
+
+		while (j < m) {
+			currSumArr2 += arr2[j];
+			j++;
+		}
+
+		maximumSum += Math.max(currSumArr1, currSumArr2);
+
+		return maximumSum;
+		
+	}
+}

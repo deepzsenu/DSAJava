@@ -1,0 +1,25 @@
+public class Solution {
+
+	public static int arrayEquilibriumIndex(int[] arr){  
+		//Your code goes here
+		int sum = 0;
+		for(int i = 0 ; i < arr.length; i++){
+			sum+=arr[i];
+		}
+		int lsum = 0;
+		for(int i = 0 ; i < arr.length; i++){
+			
+			lsum+=arr[i];
+			if (lsum <sum){
+				sum-=arr[i];
+			}
+			else if (lsum== sum){
+				return i;
+			}
+			else{
+				return -1;
+			}
+		}
+		return -1;
+	}
+}
