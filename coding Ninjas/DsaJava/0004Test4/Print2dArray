@@ -1,0 +1,15 @@
+public class solution {
+
+	public static void print2DArray(int input[][]) {
+		// Write your code here
+		for(int i = 0; i<input.length; i++){
+            for(int j = i; j<input.length; j++){
+                for(int k = 0; k<input[0].length; k++){
+                    System.out.print(input[i][k]+" ");
+                }
+                System.out.println();
+            }
+        }
+
+	}
+}
