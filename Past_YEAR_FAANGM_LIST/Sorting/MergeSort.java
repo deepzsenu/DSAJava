@@ -32,7 +32,6 @@ public class MergeSort {
         for (int i=0, j=si; i<merge.length; i++, j++){
             arr[j] = merge[i];
         }
-
     }
     public static void main(String[] args) {
         int arr[] = {5,4,3,7,8,3,2,1,5,6,605,4,33,44444,5422};

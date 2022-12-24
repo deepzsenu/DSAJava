@@ -1,0 +1,71 @@
+/*
+	To apply the method explained in the hint video, we have to add two more parameters in the function call. This can be done by calling a helper function from given function. The helper function can have three parameters: array, start index, end index.  
+	
+	Skeleton code to achieve this:
+	public class Solution {
+		public static void quickSort(int[] input, int startIndex, int endInedx) {
+			// your code goes here
+		}
+		public static void quickSort(int[] input) {
+			quickSort(input, 0, input.length - 1);
+		}
+	}
+*/
+
+
+public class Solution {
+	static void swap(int arr[], int i, int j ){
+		int temp = arr[i];
+		arr[i]  = arr[j];
+		arr[j] = temp;
+	}
+	static int partition(int arr[],int  si,int  end){
+		int pivot = arr[si];
+		int count=0;
+		for(int i = si+1 ; i  <=end; i++){
+			if(arr[i]<pivot){
+				count++;
+			}
+		}
+		// int temp = arr[si+count];
+		// arr[si+count] = pivot;
+		// arr[si] = temp;
+		swap(arr, si, si+count);
+
+		int i = si ; 
+		int j = end;
+		while(i<j){
+			if(arr[i]<pivot){
+				i++;
+			}
+			else if (arr[j]>=pivot){
+				j--;
+			}
+			else{
+				swap(arr, i, j);
+				i++;
+				j--;
+			}
+		}
+		return count+si;
+	}
+	public static void quickSort(int[] arr, int si, int end) {
+			// your code goes here
+			if(si>end){
+				return;
+			}
+			int m = partition(arr, si, end);
+			quickSort(arr,si,m-1);
+			quickSort(arr, m+1, end);
+
+		}
+	public static void quickSort(int[] arr) {
+		/* Your class should be named Solution
+		 * Don't write main().
+		 * Don't read input, it is passed as function argument.
+		 * No need to print or return the output.
+		 * Taking input and printing output is handled automatically.
+		 */
+		 quickSort(arr, 0, arr.length - 1);
+	}
+}

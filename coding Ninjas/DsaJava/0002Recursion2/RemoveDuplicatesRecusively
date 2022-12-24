@@ -11,8 +11,6 @@ public class Solution {
 		else{
 			return s.charAt(0)+ removeConsecutiveDuplicates(s.substring(1));
 		}
-
-
 	}
 
 }

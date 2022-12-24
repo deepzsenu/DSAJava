@@ -1,0 +1,54 @@
+public class solution {
+	public static void merge(int arr[], int a[], int b[]){
+		int x = 0;
+		int i =0;
+		int j = 0;
+		while(i<a.length && j <b.length){
+			if(a[i]<b[j]){
+				arr[x] = a[i];
+				i++;
+				x++;
+			}
+			else if (b[j]<a[i]){
+				arr[x] = b[j];
+				j++;
+				x++;
+			}
+			else{
+				arr[x] = a[i];
+				i++;
+				x++;
+			}
+		}
+		while(i<a.length){
+			arr[x] = a[i];
+			i++;
+			x++;
+		}
+		while(j<b.length){
+			arr[x] = b[j];
+			j++;
+			x++;
+		}
+
+	}
+
+	public static void mergeSort(int[] arr){
+		// Write your code here
+		if(arr.length<=1){
+			return;
+		}
+		int a[] = new int[arr.length/2];
+		int b[] = new int[arr.length-a.length];
+
+		for(int i =0; i <arr.length/2; i++){
+			a[i] = arr[i];
+		}
+		for(int i = arr.length/2 ; i<arr.length; i++){
+			b[i-arr.length/2] = arr[i];
+		}
+		mergeSort(a);
+		mergeSort(b);
+		merge(arr, a,b);
+	}
+}
