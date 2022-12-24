@@ -1,0 +1,17 @@
+
+public class solution {
+
+	public static boolean isStringPalindrome(String s) {
+		// Write your code here
+		if(s.length() <=1){
+			return true;
+		}
+		if(s.charAt(0) == s.charAt(s.length()-1)){
+			return isStringPalindrome(s.substring(1,s.length()-1));
+		}
+		else{
+			return false;
+		}
+
+	}
+}

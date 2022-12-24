@@ -1,0 +1,16 @@
+import java.util.*;
+public class solution {
+
+	public static int convertStringToInt(String s){
+		// Write your code here
+		if (s.length() == 1){
+			return Integer.parseInt(Character.toString(s.charAt(0)));
+		}
+		int c =  Integer.parseInt(Character.toString(s.charAt(0)));
+        //(int)s.charAt(0)-48;
+		int d = c*(int)(Math.pow(10, s.length()-1));
+		return d+convertStringToInt(s.substring(1));
+
+
+	}
+}

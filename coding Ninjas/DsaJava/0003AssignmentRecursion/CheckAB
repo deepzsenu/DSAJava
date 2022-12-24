@@ -1,0 +1,33 @@
+public class Solution {
+
+	public static boolean checkAB(String s) {
+		// Write your code here
+		if(s.length()==0){
+			return true;
+		}
+		if (s.charAt(0) == 'a') {
+			if (s.substring(1).length() > 1 && s.substring(1, 3).equals("bb")) {
+				return checkAB(s.substring(3));
+			} else {
+				return checkAB(s.substring(1));
+			}
+		}
+		else{
+			return false;
+		}
+		// if(s.charAt(0) == 'b' && s.length()==1){
+		// 	return false;
+		// }
+		// if(s.charAt(0)=='a' && s.charAt(1) == '\0'){
+		// 	return true;
+		// }
+		// return checkAB(s.substring(0, s.length() - 1));
+		// if(s.charAt(s.length()-2) <=s.charAt(s.length()-1)){
+
+		// }
+		// else{
+		// 	return false;
+		// }
+
+	}
+}
