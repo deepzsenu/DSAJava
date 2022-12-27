@@ -1,0 +1,29 @@
+/*
+
+ 	Following is the Node class already written for the Linked List
+
+	class LinkedListNode<T> {
+		T data;
+		LinkedListNode<T> next;
+
+		public Node(T data) {
+			this.data = data;
+		}
+	}
+
+*/
+
+
+public class Solution {
+
+
+	public static int length(LinkedListNode<Integer> head){
+		//Your code goes here
+		int r = 0;
+		while(head!=null){
+			r++;
+			head = head.next;
+		}
+		return r;
+	}
+}
