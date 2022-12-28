@@ -10,6 +10,16 @@ class Node<T> {
 
 // import Node.java;
 public class LinkedList{
+    static void fun(Node start)
+    {
+      if(start == null)
+        return;
+      System.out.print( start.data); 
+    
+      if(start.next != null )
+        fun(start.next.next);
+      System.out.print(start.data);
+    }
     public static void print(Node<Integer> head){
         Node<Integer> temp = head;
 
@@ -20,11 +30,14 @@ public class LinkedList{
         System.out.println();
     }
     public static void main(String[] args) {
-        Node<Integer> n = new Node<>(10);
-        n.next = new Node<>(20);
-        n.next.next = new Node<>(30);
-        n.next.next.next = new Node<>(40);
-        Node h = n;
+        Node<Integer> n = new Node<>(1);
+        n.next = new Node<>(2);
+        n.next.next = new Node<>(3);
+        n.next.next.next = new Node<>(4);
+        n.next.next.next.next = new Node<>(5);
+        n.next.next.next.next.next = new Node<>(6);
+        // fun(n);
+        Node<Integer>h = n;
         while(h!=null){
             System.out.println(h.data);
             h= h.next;
