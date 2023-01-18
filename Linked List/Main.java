@@ -3,6 +3,7 @@ class Node<T>{
     T data;
     Node<T> next;
 }
+
 class LinkedList<T> {
     Node<T> head;
     Node<T> tail;
@@ -32,6 +33,7 @@ class LinkedList<T> {
             System.out.print(temp.data+" ");
             temp = temp.next;
         }
+        System.out.println();
     }
 
     void removeFirst(){
@@ -44,10 +46,41 @@ class LinkedList<T> {
         }
     }
 
-    <T> Object getAt(Node<T> head){
-        return T;
+    <T> Object getAt(Node<T> head, int ind){
+        if(size == 0){
+            System.out.println("LL is empty");
+            return null;
+        }
+        if (ind >= size || ind<0){
+            System.out.println("wrong index");
+            return null;
+        }
+        Node<T> cur = head;
+        while(ind>0){
+            cur = cur.next;
+            ind --;
+        }
+        return cur.data;
     }
 
+    void addFirst(T data){
+        Node<T> temp = new Node<>();
+        temp.data = data;
+        temp.next =  head;
+        head = temp;
+        size++;
+    }
+    void addLast(T data){
+        Node<T> temp = new Node<>();
+        temp.data = data;
+        tail.next =  temp;
+        tail = temp.next;
+        size++;
+    }
+
+    void addAt(T data, int ind){
+
+    }
 
 }
 
@@ -60,7 +93,13 @@ public class Main{
         }
         ll.display();
         System.out.println("\n"+ll.size());
-        ll.removeFirst();
+        // ll.removeFirst();
+        System.out.println(ll.getAt(ll.head, 4));
+        System.out.println(ll.getAt(ll.head, 34));
+        System.out.println(ll.getAt(ll.head, -4));
+        ll.addFirst(67);
+        ll.display();
+        ll.addLast(63);
         ll.display();
     }
 }
